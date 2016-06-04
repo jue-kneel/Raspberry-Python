@@ -17,11 +17,11 @@ def getserial():
 
 myserial=getserial()
 
-sourceURL = 'https://il5t4m4jud.execute-api.us-west-2.amazonaws.com/prod/TS-PiConfiguration'
+sourceURL = 'https://773i7v60n1.execute-api.us-west-2.amazonaws.com/tarshare/pi?id='
 
-authentication = {"id": myserial} 
-parameters = json.dumps(authentication).encode('utf-8')
-req = urllib.request.Request(sourceURL, data=parameters)
+sourceURL += myserial 
+print (sourceURL)
+req = urllib.request.Request(sourceURL)
 response = urllib.request.urlopen(req)
 configfile = json.loads(response.read().decode('utf-8'))
 
